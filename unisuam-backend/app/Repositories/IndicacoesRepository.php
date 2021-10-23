@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Indicacoes;
 use Illuminate\Database\QueryException;
 
+
 class IndicacoesRepository 
 {
 
@@ -43,6 +44,7 @@ class IndicacoesRepository
 
     public static function createIndicacao($dados){
         try {
+
             $indicacao = new Indicacoes();
             $indicacao->nome = $dados->nome;
             $indicacao->cpf = $dados->cpf;

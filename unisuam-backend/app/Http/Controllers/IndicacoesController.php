@@ -6,12 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\IndicacoesRepository;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Validator;
 
 class IndicacoesController extends Controller
 {
 
     public function cadastrarIndicacao(Request $request){
         try {
+            $validator = Validator::make($request->all(), [
+                'email' => [
+                    'email',
+                ],
+                'cpf' => [
+                    'cpf',
+                    'unique:indicacoes'
+                ]
+            ]);
+    
+            if ($validator->fails()){
+                return response()->json('Falha ao cadastrar Indicação');
+            }
             return IndicacoesRepository::createIndicacao($request);
         } catch (QueryException $e) {
             return response()->json([
