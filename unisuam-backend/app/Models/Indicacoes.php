@@ -31,7 +31,7 @@ class Indicacoes extends Model
 
     public function status()
     {
-        return $this->hasOne(StatusIndicacoes::class, 'indicacoes_status', 'id', 'status_id');
+        return $this->hasOne(StatusIndicacoes::class, 'id', 'status_id');
     }
 
 

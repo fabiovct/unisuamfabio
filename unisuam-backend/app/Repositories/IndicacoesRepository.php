@@ -61,10 +61,15 @@ class IndicacoesRepository
 
     public static function updateIndicacao($dados){
         try {
+
             $indicacao = Indicacoes::where('id',$dados->id)->first();
-            $indicacao->status_id = $indicacao->status_id+1;
-            $indicacao->save();
-    
+            if($indicacao->status_id < 3){
+                $indicacao->status_id = $indicacao->status_id+1;
+                $indicacao->save();
+            }else{
+                return response()->json('Indicação Não Alterada');
+            }
+
             return response()->json('Indicação Alterada Com Sucesso');
         } catch (QueryException $e) {
             return response()->json([
