@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndicacoesController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,11 +21,18 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+Route::post('login', [LoginController::class, 'login']);
+
+// Route::group(['prefix' => 'indicacoes', 'middleware' => 'jwt'], function () {
 Route::group(['prefix' => 'indicacoes'], function () {
     Route::get('listar-indicacoes', [IndicacoesController::class, 'listarIndicacoes']);
     Route::post('criar-indicacao', [IndicacoesController::class, 'cadastrarIndicacao']);
     Route::put('editar-indicacao/{id}', [IndicacoesController::class, 'editarIndicacoes']);
     Route::delete('excluir-indicacao/{id}', [IndicacoesController::class, 'excluirIndicacao']);
+});
+
+Route::get('error', function () {
+    return response()->json(['jwt_status' => false]);
 });
 
 

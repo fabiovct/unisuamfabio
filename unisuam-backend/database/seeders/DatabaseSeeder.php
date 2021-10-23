@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             [
             'name'=> 'admin',   
             'email' => 'admin@admin.com.br',
-            'password' => '123456'
+            'password' => md5('123456')
             ]
         ));
     }
