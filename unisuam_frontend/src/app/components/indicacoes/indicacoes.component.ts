@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IndicacoesService } from 'src/app/services/indicacoes.service';
+// import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-indicacoes',
@@ -20,6 +21,7 @@ export class IndicacoesComponent implements OnInit {
   constructor(
     private router: Router,
     private indicacaoService: IndicacoesService,
+    // public dropdownng: NgbDropdown,
   ) { }
 
   ngOnInit() {

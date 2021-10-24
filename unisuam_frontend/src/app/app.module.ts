@@ -9,12 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { IndicacoesService } from './services/indicacoes.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     IndicacoesComponent,
+    NavbarComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -22,10 +26,11 @@ import { IndicacoesService } from './services/indicacoes.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbDropdownModule,
   ],
   providers: [
     LoginService,
-    IndicacoesService
+    IndicacoesService,
   ],
   bootstrap: [
     AppComponent

@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'unisuam-frontend';
+  showHeader = false;
+  background = false;
+  ngOnInit() {
+    
+    if(window.location.pathname == '/'){
+      this.showHeader = false;
+      this.background = true;
+    }else{
+      this.showHeader = true;
+      this.background = false;
+    }
+
+  }
+
+  
 }
