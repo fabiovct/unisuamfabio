@@ -1,5 +1,6 @@
 <div class="container mt-5">
-    <button type="button" class="btn btn-primary" (click)="showCadastro()">Cadastrar Indicação</button>
+    <button type="button" class="btn btn-primary align-right btn-sm" (click)="showCadastro()">Cadastrar Indicação</button>
+    <button type="button"  class="btn btn-danger align-right btn-sm ms-2" (click)="logout()">Logout</button>
 <div class="row mt-4" *ngIf='formCadastro'>
     <form #productform="ngForm"  (ngSubmit)="cadastrarIndicacao()">
         <div class="form-group">

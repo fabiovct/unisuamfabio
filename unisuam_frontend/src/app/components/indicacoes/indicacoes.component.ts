@@ -36,10 +36,10 @@ export class IndicacoesComponent implements OnInit {
 nome, cpf, telefone, email
   */
 
-  // logout(){
-  //   localStorage.removeItem('token');
-  //   this.router.navigateByUrl('/login');
-  // }
+  logout(){
+    localStorage.removeItem('token_unisuam');
+    this.router.navigateByUrl('/');
+  }
 
   showCadastro(){
     if(this.formCadastro == false){
