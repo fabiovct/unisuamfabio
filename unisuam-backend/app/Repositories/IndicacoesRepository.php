@@ -23,7 +23,8 @@ class IndicacoesRepository
     public static function deleteIndicacao($id){
         try {
             $indicacao = Indicacoes::where('id',$id)->delete();
-            return response()->json('Indicação Deletada Com Sucesso');
+            $indicacoes = Indicacoes::with('status')->orderBy('id', 'DESC')->get();
+            return response()->json($indicacoes);
         } catch (QueryException $e) {
             return response()->json([
                 "error" => $e
@@ -52,8 +53,11 @@ class IndicacoesRepository
             $indicacao->email = $dados->email;
             $indicacao->status_id = 1;
             $indicacao->save();
+
+            $indicacoes = Indicacoes::with('status')->orderBy('id', 'DESC')->get();
+            return response()->json($indicacoes);
     
-            return response()->json('Indicação Cadastrada Com Sucesso');
+            // return response()->json('Indicação Cadastrada Com Sucesso');
         } catch (QueryException $e) {
             return response()->json([
                 "error" => $e
@@ -72,7 +76,8 @@ class IndicacoesRepository
                 return response()->json('Indicação Não Alterada');
             }
 
-            return response()->json('Indicação Alterada Com Sucesso');
+            $indicacoes = Indicacoes::with('status')->orderBy('id', 'DESC')->get();
+            return response()->json($indicacoes);
         } catch (QueryException $e) {
             return response()->json([
                 "error" => $e

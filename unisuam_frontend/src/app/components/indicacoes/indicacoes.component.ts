@@ -50,12 +50,24 @@ nome, cpf, telefone, email
   }
   
   cadastrarIndicacao(){
-    this.indicacaoService.cadastrar(this.form);
+    this.indicacaoService.cadastrar(this.form)
+    .then(indicacoes => {
+      if(indicacoes.length > 0){
+        this.indicacoes = indicacoes;
+        this.formCadastro = false
+        alert('Indicação cadastrada com sucesso.')
+      }else{
+        alert('Falha ao cadastrar Indicação.')
+      }
+
+    }).catch(
+      // alert('falha ao cadastrar indicação')
+      // products => this.router.navigateByUrl('/login')
+    );
   }
 
   updateIndicacao(id){
-    this.indicacaoService.editar(id);
-    this.indicacaoService.listar()
+    this.indicacaoService.editar(id)
     .then(indicacoes => {
       this.indicacoes = indicacoes;
     }).catch(
@@ -63,7 +75,12 @@ nome, cpf, telefone, email
     );
   }
   deleteIndicacao(id){
-    console.log(id)
+    this.indicacaoService.excluir(id)
+    .then(indicacoes => {
+      this.indicacoes = indicacoes;
+    }).catch(
+      // products => this.router.navigateByUrl('/login')
+    );
   }
 
 

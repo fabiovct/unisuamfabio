@@ -24,7 +24,7 @@ class IndicacoesController extends Controller
             ]);
     
             if ($validator->fails()){
-                return response()->json('Falha ao cadastrar Indicação');
+                return response()->json(['error'=>0]);
             }
             return IndicacoesRepository::createIndicacao($request);
         } catch (QueryException $e) {
