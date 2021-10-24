@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,  HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,25 +13,30 @@ export class IndicacoesService {
   }
 
   listar(){
-    return this.http.get(`${this.baseUrl}/indicacoes/listar-indicacoes`) 
+    const head = new HttpHeaders().append('Authorization', 'Bearer '+localStorage.token_unisuam)
+    // console.log(localStorage.token);
+    return this.http.get(`${this.baseUrl}/indicacoes/listar-indicacoes`, {headers: head}) 
     .toPromise()
     .then(response => response)
     .catch(this.handleError)
   }
   editar(id){
-    return this.http.get(`${this.baseUrl}/indicacoes/editar-indicacao/${id}`)
+    const head = new HttpHeaders().append('Authorization', 'Bearer '+localStorage.token_unisuam)
+    return this.http.get(`${this.baseUrl}/indicacoes/editar-indicacao/${id}`, {headers: head})
     .toPromise()
     .then(response => response)
     .catch(this.handleError)
   }
   cadastrar(data){
-    return this.http.post(`${this.baseUrl}/indicacoes/criar-indicacao`, data)
+    const head = new HttpHeaders().append('Authorization', 'Bearer '+localStorage.token_unisuam)
+    return this.http.post(`${this.baseUrl}/indicacoes/criar-indicacao`, data,{headers: head})
     .toPromise()
     .then(response => response)
     .catch(this.handleError)
   }
   excluir(id){
-    return this.http.delete(`${this.baseUrl}/indicacoes/excluir-indicacao/${id}`)
+    const head = new HttpHeaders().append('Authorization', 'Bearer '+localStorage.token_unisuam)
+    return this.http.delete(`${this.baseUrl}/indicacoes/excluir-indicacao/${id}`, {headers: head})
     .toPromise()
     .then(response => response)
     .catch(this.handleError)
