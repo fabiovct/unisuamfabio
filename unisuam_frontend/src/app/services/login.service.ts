@@ -15,7 +15,7 @@ export class LoginService {
   login(data){
     return this.http.post(`${this.baseUrl}/login`, data)
     .toPromise()
-    .then(response => console.log(response))
+    .then(response => response)
     .catch(this.handleError)
   }
 

@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 
 const appRoutes:  Routes = [
   {
-  path:'login',
+  path:'',
   component: LoginComponent,
   //canActivate: [BeforeLoginService]
   },

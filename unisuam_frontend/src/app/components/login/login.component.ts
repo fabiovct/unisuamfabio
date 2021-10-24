@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   public data = null;
   constructor(
     private login: LoginService,
+    private router: Router,
     ) {}
 
   ngOnInit() {
@@ -26,7 +28,12 @@ export class LoginComponent implements OnInit {
     // this.Login.login(this.form)
     this.login.login(this.form)
     .then(response => {
-      console.log(response)
+      if(response == 0){
+        alert('Senha ou email invalidos')
+      }else{
+        localStorage.setItem('token_unisuam',response);
+        this.router.navigateByUrl('/indicacoes')
+      }
     })
 
   }
