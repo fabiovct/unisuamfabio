@@ -8,6 +8,7 @@ import { IndicacoesComponent } from './components/indicacoes/indicacoes.componen
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
+import { IndicacoesService } from './services/indicacoes.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginService } from './services/login.service';
     HttpClientModule,
   ],
   providers: [
-    LoginService
+    LoginService,
+    IndicacoesService
   ],
   bootstrap: [
     AppComponent
