@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IndicacoesService } from 'src/app/services/indicacoes.service';
 
 @Component({
   selector: 'app-indicacoes',
@@ -14,14 +15,22 @@ export class IndicacoesComponent implements OnInit {
     telefone:null,
     email:null
   };
+  public indicacoes = [];
 
   constructor(
     private router: Router,
-    // private indicacaoService: Indica,
+    private indicacaoService: IndicacoesService,
   ) { }
 
   ngOnInit() {
     // const formCadastro = true;
+    this.indicacaoService.listar()
+    .then(indicacoes => {
+      console.log(indicacoes)
+      this.indicacoes = indicacoes;
+    }).catch(
+      // products => this.router.navigateByUrl('/login')
+  );
   }
   /*
 nome, cpf, telefone, email
@@ -39,5 +48,23 @@ nome, cpf, telefone, email
       this.formCadastro = false
     }
   }
+  
+  cadastrarIndicacao(){
+    this.indicacaoService.cadastrar(this.form);
+  }
+
+  updateIndicacao(id){
+    this.indicacaoService.editar(id);
+    this.indicacaoService.listar()
+    .then(indicacoes => {
+      this.indicacoes = indicacoes;
+    }).catch(
+      // products => this.router.navigateByUrl('/login')
+    );
+  }
+  deleteIndicacao(id){
+    console.log(id)
+  }
+
 
 }

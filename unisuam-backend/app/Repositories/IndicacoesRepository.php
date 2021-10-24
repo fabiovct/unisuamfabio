@@ -33,7 +33,7 @@ class IndicacoesRepository
 
     public static function getIndicacoes(){
         try {
-            $indicacoes = Indicacoes::with('status')->get();
+            $indicacoes = Indicacoes::with('status')->orderBy('id', 'DESC')->get();
             return response()->json($indicacoes);
         } catch (QueryException $e) {
             return response()->json([
