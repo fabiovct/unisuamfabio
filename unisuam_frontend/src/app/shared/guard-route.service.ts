@@ -15,7 +15,8 @@ export class GuardRouteService implements CanActivate{
    if(token){
      return true;
    }else{
-     this.router.navigate(['/']);
+    window.location.pathname = '/';
+    //  this.router.navigate(['/']);
      return false;
    }
 
