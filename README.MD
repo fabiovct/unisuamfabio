@@ -16,7 +16,7 @@ Rodar o comando php artisan db:seed<br/>
 
 Rodar o comando php artisan serve<br/>
 
-#FRONTEND<br/>
+#FRONTEND ANGULAR<br/>
 
 Após rodar os comandos do backend, va no front e: <br/>
 
