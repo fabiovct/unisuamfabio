@@ -21,7 +21,7 @@ Rodar o comando php artisan serve<br/>
 Após rodar os comandos do backend, va no front e: <br/>
 
 rode o comando npm i<br/>
-rode o comando ng serve<br/>
+rode o comando npm start<br/>
 
 Dados para logar:<br/>
 email: admin@admin.com.br<br/> 

@@ -66,6 +66,10 @@ export class IndicacoesComponent implements OnInit {
       if(indicacoes.length > 0){
         this.indicacoes = indicacoes;
         this.formCadastro = false
+        this.form.cpf = '';
+        this.form.nome = '';
+        this.form.email = '';
+        this.form.telefone = '';
         alert('Indicação cadastrada com sucesso.')
       }else{
         alert('Falha ao cadastrar Indicação.')
