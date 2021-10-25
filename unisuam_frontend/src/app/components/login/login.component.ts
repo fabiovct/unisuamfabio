@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
         alert('Senha ou email invalidos')
       }else{
         localStorage.setItem('token_unisuam',response);
-        this.router.navigateByUrl('/indicacoes')
+        window.location.pathname = '/indicacoes';
+        // this.router.navigateByUrl('/indicacoes')
+        // window.location.reload()
       }
     })
 

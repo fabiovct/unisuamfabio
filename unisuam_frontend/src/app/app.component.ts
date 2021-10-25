@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,9 @@ export class AppComponent {
   title = 'unisuam-frontend';
   showHeader = false;
   background = false;
+  // constructor(private route:ActivatedRoute) {
+  //   route.params.subscribe(this.initialize())
+  // }
   ngOnInit() {
     
     if(window.location.pathname == '/'){

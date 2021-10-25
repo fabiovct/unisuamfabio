@@ -23,6 +23,7 @@ export class IndicacoesComponent implements OnInit {
     private indicacaoService: IndicacoesService,
     // public dropdownng: NgbDropdown,
   ) { }
+  
 
   ngOnInit() {
     // const formCadastro = true;
@@ -34,14 +35,22 @@ export class IndicacoesComponent implements OnInit {
       // products => this.router.navigateByUrl('/login')
   );
   }
-  /*
-nome, cpf, telefone, email
-  */
 
   logout(){
-    localStorage.removeItem('token_unisuam');
-    this.router.navigateByUrl('/');
+    localStorage.removeItem('token_unisuam')
+    
+    // this.router.navigateByUrl('/');
+    window.location.pathname = '/';
+    // $route.reload()
+    // window.location.reload()
   }
+
+  /*
+    this._DataService.addData(data.value).subscribe(data => {
+        this.router.navigate(['/path]);
+    });
+
+  */
 
   showCadastro(){
     if(this.formCadastro == false){
